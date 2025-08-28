@@ -1,3 +1,4 @@
+
 ## introduction
 There are many types of microcontroller around in our Creative Technology realm. We let you get started with Arduino (Uno) because of the level of documentation, ease of use and balanced (not overwhelming) amount of features. Your Arduino is however just the tip of the iceberg, there are many alternatives around with different price tag, more performance and peripherals, even up to the point where they are bridging the devide between 'microcontroller' and fully fledged computer [^1]. 
 
@@ -11,6 +12,7 @@ The easiest way to get started with programming the pico is using the [Arduino e
 Note that the board (definitions) also come with a great library of functions. Using Earle F. Philhower's Arduino framework for Pico, you can use most of the existing Arduino functions digital/analog read/write, Serial.print, millis(), etc) and many others. Most notably there is the option for using setup1() and loop1() to run processes on the other core.. how cool is that!
 
 ![[Pasted image 20250826125803.png]]
+
 A close inspection of the pico shows that it has a few more pins (than an Arduino), and that most of the pins also have specific hardware options (such as I2C or Serial communication) available. Also, very important, **the pico works at 3.3V**, so you cannot use your older 5V hardware and sensors without adaptation. 
 
 ### uploading programs
