@@ -7,7 +7,7 @@ For the hackathon (and as follow up) we chose the [RPi pico 2W](https://www.rasp
 ## getting started
 The easiest way to get started with programming the pico is using the [Arduino environment](https://www.arduino.cc/en/software/). Simply download a board definition for RPi Pico (select from the board manager) and install the board definitions for pico / RP2040 by Earle F. Philhower, III. Do *not* install the version for MBED OS or the DEPRECATED Nano 33 BLE sense edition. They are not well/not longer supported. *(so, see the following figure: the middle option is the right one)*
 
-![[/images/Pasted image 20250826153647.png]]
+![[Pasted image 20250826153647.png]]
 
 Note that the board (definitions) also come with a great library of functions. Using Earle F. Philhower's Arduino framework for Pico, you can use most of the existing Arduino functions digital/analog read/write, Serial.print, millis(), etc) and many others. Most notably there is the option for using setup1() and loop1() to run processes on the other core.. how cool is that!
 
