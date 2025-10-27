@@ -1,17 +1,23 @@
 
 ## introduction
-There are many types of microcontroller around in our Creative Technology realm. We let you get started with Arduino (Uno) because of the level of documentation, ease of use and balanced (not overwhelming) amount of features. Your Arduino is however just the tip of the iceberg, there are many alternatives around with different price tag, more performance and peripherals, even up to the point where they are bridging the devide between 'microcontroller' and fully fledged computer [^1]. 
+There are many types of microcontroller around in the Maker- and Creative Technology realm. Most people get started with Arduino (Uno) because of the level of documentation, ease of use and balanced (not overwhelming) amount of features. Your Arduino is however just the tip of the iceberg, there are many alternatives around with different price tag, more performance and peripherals, even up to the point where they are bridging the devide between 'microcontroller' and fully fledged computer [^1]. 
 
-For the hackathon (and as follow up) we chose the [RPi pico 2W](https://www.raspberrypi.com/products/raspberry-pi-pico-2/). This controller by the Raspberry Pi group has 2 cores, 8 peripheral controllers, runs at 150 MHz, 32 bits- and is [VERY WELL documented](https://datasheets.raspberrypi.com/picow/pico-2-w-datasheet.pdf). The latter has been the most compelling argument for us to move to the pico instead of widespread ESP32 controllers. Since the price tag is not the issue (picos are much cheaper than Arduinos) we believe we can 'up your game' considerably by introducing these. The pico 2W also has everything on board for wireless (bluetooth, WIFI) communication. 
+As follow up we take a look at the [RPi pico 2W](https://www.raspberrypi.com/products/raspberry-pi-pico-2/). This controller by the Raspberry Pi group has 2 cores, 8 peripheral controllers, runs at 150 MHz, 32 bits- and is [VERY WELL documented](https://datasheets.raspberrypi.com/picow/pico-2-w-datasheet.pdf). The latter has been the most compelling argument for us to move to the pico instead of widespread ESP32 controllers. Since the price tag is not the issue (picos are much cheaper than Arduinos) we believe we can 'up your game' considerably by introducing these. The Pico 2W also has everything on board for wireless (bluetooth, WIFI) communication. 
 
 ## getting started
 The easiest way to get started with programming the pico is using the [Arduino environment](https://www.arduino.cc/en/software/). Simply download a board definition for RPi Pico (select from the board manager) and install the board definitions for pico / RP2040 by Earle F. Philhower, III. Do *not* install the version for MBED OS or the DEPRECATED Nano 33 BLE sense edition. They are not well/not longer supported. *(so, see the following figure: the middle option is the right one)*
 
-![[Pasted image 20250826153647.png]]
+In order for these definitions to show up, you have to add the line
+```
+https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json
+```
+to the 'Additional Board Managar URL's' setting in Arduino's setting pane. More about EarlPhilhowwer's port can be found [here](https://github.com/earlephilhower/arduino-pico).
+
+![arduino boardmanager](images/arduino.png)
 
 Note that the board (definitions) also come with a great library of functions. Using Earle F. Philhower's Arduino framework for Pico, you can use most of the existing Arduino functions digital/analog read/write, Serial.print, millis(), etc) and many others. Most notably there is the option for using setup1() and loop1() to run processes on the other core.. how cool is that!
 
-![[Pasted image 20250826125803.png]]
+![arduino](images/pinout.png)
 
 A close inspection of the pico shows that it has a few more pins (than an Arduino), and that most of the pins also have specific hardware options (such as I2C or Serial communication) available. Also, very important, **the pico works at 3.3V**, so you cannot use your older 5V hardware and sensors without adaptation. 
 
@@ -29,7 +35,7 @@ Tha latter is a set of tools necessary to compile and build software for embedde
 - download and install [platform.io](https://platformio.org/install/ide?install=vscode) (might take a while)
 - use platform.io Home tool (alien icon) to start a new (test) project.
 
-![[Pasted image 20250826154807.png]]
+![projectwizard](images/projectwizard.png)
 
 - you find a directory with files to the left, instead of the .ino file you get a 'main.cpp' containing your void setup() and void loop().
 ![[Pasted image 20250826154945.png]]
@@ -57,7 +63,7 @@ build_flags = -DDEFAULT_MTU=1400
 
 Way below in the bar you will find buttons for building and uploading the code (same icons as used with Arduino). The tick mark ✓ is for checking and compiling, the arrow → is for uploading.
 
-![[Pasted image 20250828085639.png]]
+![buttons](images/buttons.png)
 
 >Typically VScode is a bit faster in the whole compiling, linking and uploading code than Arduino IDE, because it will leave pre(viously) compiled code as is, and will just link the newly compiled bits you added. Arduino IDE will always compile EVERYTHING, which takes up some time. This behaviour also means that when you mess around with dependencies, added new libraries or made big changes throughout the code, it is wise to start 'fresh'. You can do this by hitting the thrash button 🗑︎ next to the right arrow. This will remove all pre-compiled code and start anew. 
 
